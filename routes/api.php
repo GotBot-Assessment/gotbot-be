@@ -13,3 +13,9 @@ Route::prefix('auth')->group(function () {
     Route::post('/register', RegistrationController::class);
     Route::post('/login', LoginController::class);
 });
+
+Route::prefix('foods')
+    ->middleware(['auth:api'])
+    ->group(function () {
+
+    });
