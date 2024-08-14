@@ -14,14 +14,15 @@ class FoodResource extends JsonResource
      */
     public function toArray(Request $request): array {
         return [
-            'id'          => $this->id,
-            'name'        => $this->name,
-            'path'        => $this->description,
-            'type'        => $this->type,
-            'price'       => $this->price,
-            'createdAt'   => $this->created_at,
-            'updatedAt'   => $this->updated_at,
-            'ingredients' => $this->whenLoaded('ingredients', IngredientReource::collection($this->ingredients))
+            'id'               => $this->id,
+            'name'             => $this->name,
+            'path'             => $this->description,
+            'type'             => $this->type,
+            'price'            => $this->price,
+            'createdAt'        => $this->created_at,
+            'updatedAt'        => $this->updated_at,
+            'ingredients'      => $this->whenLoaded('ingredients', IngredientReource::collection($this->ingredients)),
+            'ingredientsCount' => $this->whenCounted('ingredients', $this->ingredientsCount)
         ];
     }
 }
