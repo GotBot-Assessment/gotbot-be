@@ -15,7 +15,7 @@ class ListFoodsController extends Controller
     public function __invoke(Request $request) {
         $foods = Food::withCount('ingredients')
             ->latest()
-            ->simplePaginate(15);
+            ->paginate(15);
 
         return FoodResource::collection($foods);
     }

@@ -16,7 +16,7 @@ class FoodResource extends JsonResource
         return [
             'id'               => $this->id,
             'name'             => $this->name,
-            'path'             => $this->description,
+            'description'             => $this->description,
             'type'             => $this->type,
             'price'            => $this->price,
             'createdAt'        => $this->created_at,
