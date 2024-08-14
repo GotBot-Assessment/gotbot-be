@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegistrationController;
+use App\Http\Controllers\Foods\DeleteFoodController;
+use App\Http\Controllers\Foods\Ingredients\CreateIngredientController;
+use App\Http\Controllers\Foods\Ingredients\UpdateIngredientController;
 use App\Http\Controllers\Foods\ListFoodsController;
+use App\Http\Controllers\Foods\UpdateFoodController;
 use App\Http\Controllers\Foods\ViewFoodController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +25,11 @@ Route::prefix('foods')
     ->group(callback: function () {
         Route::get('/', ListFoodsController::class);
         Route::get('/{id}', ViewFoodController::class);
+        Route::delete('/{id}', DeleteFoodController::class);
+        Route::put('/{id}', UpdateFoodController::class);
+
+        //Ingredients.
+        Route::post('/{id}/ingredients', CreateIngredientController::class);
+        Route::delete('/{id}/ingredients/{ingredient_id}', CreateIngredientController::class);
+        Route::put('/{id}/ingredients/{ingredient_id}', UpdateIngredientController::class);
     });
