@@ -15,7 +15,7 @@ class RegistrationController extends Controller
         $userData['password'] = bcrypt($userData['password']);
 
         $user = User::create($userData);
-        $token = $user->createToken('user-token')->plainTextToken;
+        $token = $user->createToken('Chef')->accessToken;
 
         return response()->json([
             'status' => 'success',
