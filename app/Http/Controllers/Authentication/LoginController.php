@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Authentication;
 
-use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Authentication\LoginRequest;
 use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
