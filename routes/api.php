@@ -5,6 +5,7 @@ use App\Http\Controllers\Authentication\RegistrationController;
 use App\Http\Controllers\Foods\CreateFoodController;
 use App\Http\Controllers\Foods\DeleteFoodController;
 use App\Http\Controllers\Foods\Ingredients\CreateIngredientController;
+use App\Http\Controllers\Foods\Ingredients\DeleteIngredientController;
 use App\Http\Controllers\Foods\Ingredients\UpdateIngredientController;
 use App\Http\Controllers\Foods\ListFoodsController;
 use App\Http\Controllers\Foods\UpdateFoodController;
@@ -32,6 +33,6 @@ Route::prefix('foods')
 
         //Ingredients.
         Route::post('/{food}/ingredients', CreateIngredientController::class);
-        Route::delete('/{food}/ingredients/{ingredient}', CreateIngredientController::class);
+        Route::delete('/{food}/ingredients/{ingredient}', DeleteIngredientController::class);
         Route::put('/{food}/ingredients/{ingredient}', UpdateIngredientController::class);
     });
