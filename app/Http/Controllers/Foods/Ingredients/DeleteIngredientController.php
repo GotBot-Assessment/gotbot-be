@@ -20,7 +20,7 @@ class DeleteIngredientController extends Controller
         $ingredient->delete();
 
         return response([
-            'messages' => 'Ingredient deleted successfully.'
+            'message' => 'Ingredient deleted successfully.'
         ]);
     }
 }
