@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Food\SaveIngredientRequest;
 use App\Models\Food;
 use App\Models\Ingredient;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class UpdateIngredientController extends Controller
