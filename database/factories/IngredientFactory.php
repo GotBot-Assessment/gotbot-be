@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Ingredient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,11 @@ class IngredientFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
-    {
+    protected $model = Ingredient::class;
+
+    public function definition(): array {
         return [
-            //
+            'name' => $this->faker->word
         ];
     }
 }

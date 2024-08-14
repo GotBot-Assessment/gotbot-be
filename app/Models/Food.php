@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Food extends Model
 {
@@ -20,4 +21,8 @@ class Food extends Model
     protected $casts = [
         'price' => 'double'
     ];
+
+    public function ingredients(): HasMany {
+        return $this->hasMany(Ingredient::class, 'foodId');
+    }
 }
