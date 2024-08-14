@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegistrationController;
+use App\Http\Controllers\Foods\CreateFoodController;
 use App\Http\Controllers\Foods\DeleteFoodController;
 use App\Http\Controllers\Foods\Ingredients\CreateIngredientController;
 use App\Http\Controllers\Foods\Ingredients\UpdateIngredientController;
@@ -24,6 +25,7 @@ Route::prefix('foods')
     ->middleware(['auth:api'])
     ->group(callback: function () {
         Route::get('/', ListFoodsController::class);
+        Route::post('/', CreateFoodController::class);
         Route::get('/{id}', ViewFoodController::class);
         Route::delete('/{id}', DeleteFoodController::class);
         Route::put('/{id}', UpdateFoodController::class);
