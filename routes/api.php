@@ -28,7 +28,7 @@ Route::prefix('foods')
         Route::post('/', CreateFoodController::class);
         Route::get('/{id}', ViewFoodController::class);
         Route::delete('/{id}', DeleteFoodController::class);
-        Route::put('/{id}', UpdateFoodController::class);
+        Route::put('/{food}', UpdateFoodController::class);
 
         //Ingredients.
         Route::post('/{id}/ingredients', CreateIngredientController::class);
