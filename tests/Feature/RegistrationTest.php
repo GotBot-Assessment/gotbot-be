@@ -53,3 +53,17 @@ test('Can create an account', function () {
         'email' => 'test@example.com'
     ]);
 });
+
+
+test('Can create an account and return a token', function () {
+    $response = $this->postJson('/api/auth/register', [
+        'password'              => 'P@55word!@#',
+        'password_confirmation' => 'P@55word!@#',
+        'name'                  => 'Test',
+        'email'                 => 'test@example.com',
+    ]);
+
+    $response->assertSimilarJson([
+       'status' => true
+    ]);
+});
