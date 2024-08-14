@@ -31,7 +31,7 @@ Route::prefix('foods')
         Route::put('/{food}', UpdateFoodController::class);
 
         //Ingredients.
-        Route::post('/{id}/ingredients', CreateIngredientController::class);
-        Route::delete('/{id}/ingredients/{ingredient_id}', CreateIngredientController::class);
-        Route::put('/{id}/ingredients/{ingredient_id}', UpdateIngredientController::class);
+        Route::post('/{food}/ingredients', CreateIngredientController::class);
+        Route::delete('/{food}/ingredients/{ingredient}', CreateIngredientController::class);
+        Route::put('/{food}/ingredients/{ingredient}', UpdateIngredientController::class);
     });
