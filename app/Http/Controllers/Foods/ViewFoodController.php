@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Foods;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CreateFoodControoller extends Controller
+class ViewFoodController extends Controller
 {
     /**
      * Handle the incoming request.

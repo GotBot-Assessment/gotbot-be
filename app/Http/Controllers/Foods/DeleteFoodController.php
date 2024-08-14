@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Foods;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DeleteFoodControoller extends Controller
+class DeleteFoodController extends Controller
 {
     /**
      * Handle the incoming request.

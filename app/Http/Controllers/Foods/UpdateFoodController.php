@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Foods\Ingredients;
+namespace App\Http\Controllers\Foods;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UpdateIngredientControoller extends Controller
+class UpdateFoodController extends Controller
 {
     /**
      * Handle the incoming request.
