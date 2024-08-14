@@ -63,7 +63,8 @@ test('Can create an account and return a token', function () {
         'email'                 => 'test@example.com',
     ]);
 
-    $response->assertSimilarJson([
-       'status' => true
+    $response->assertJsonStructure([
+        'status',
+        'token'
     ]);
 });
