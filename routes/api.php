@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -10,5 +11,5 @@ Route::get('/user', function (Request $request) {
 
 Route::prefix('auth')->group(function () {
     Route::post('/register', RegistrationController::class);
-    //Route::post('/login', 'App\Http\Controllers\AuthController@login');
+    Route::post('/login', LoginController::class);
 });
