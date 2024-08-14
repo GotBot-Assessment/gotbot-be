@@ -15,6 +15,11 @@ return new class extends Migration {
             $table->text('description');
             $table->double('price');
             $table->enum('type', ['starter', 'main', 'dessert']);
+            $table->foreignId('userId')
+                ->nullable()
+                ->references('id')
+                ->on('users')
+                ->cascadeOnUpdate();
             $table->timestamps();
         });
     }
