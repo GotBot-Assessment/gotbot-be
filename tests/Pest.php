@@ -11,9 +11,13 @@
 |
 */
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Foundation\Testing\WithConsoleEvents;
+
 uses(
     Tests\TestCase::class,
-    // Illuminate\Foundation\Testing\RefreshDatabase::class,
+// Illuminate\Foundation\Testing\RefreshDatabase::class,
 )->in('Feature');
 
 /*
@@ -41,8 +45,15 @@ expect()->extend('toBeOne', function () {
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
+uses(RefreshDatabase::class)
+    ->beforeEach(function () {
+        Artisan::call('passport:client', [
+            '--personal' => true,
+            '--name'     => 'App client key'
+        ]);
+    })
+    ->in('Feature');
 
-function something()
-{
+function something() {
     // ..
 }
