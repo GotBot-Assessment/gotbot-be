@@ -26,7 +26,7 @@ Route::prefix('foods')
     ->group(callback: function () {
         Route::get('/', ListFoodsController::class);
         Route::post('/', CreateFoodController::class);
-        Route::get('/{id}', ViewFoodController::class);
+        Route::get('/{food}', ViewFoodController::class);
         Route::delete('/{id}', DeleteFoodController::class);
         Route::put('/{food}', UpdateFoodController::class);
 
