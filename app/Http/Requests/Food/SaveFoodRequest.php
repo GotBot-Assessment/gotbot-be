@@ -23,7 +23,8 @@ class SaveFoodRequest extends FormRequest
             'name'        => 'required|string|max:255|min:3',
             'description' => 'required|string|max:255|min:3',
             'price'       => 'required|numeric|min:0',
-            'type'        => 'required|in:starter,main,desert'
+            'category'    => 'required|string|max:255|min:3',
+            'area'        => 'required|string|max:255|min:3',
         ];
     }
 }
