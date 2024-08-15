@@ -16,8 +16,8 @@ class Food extends Model
         'name',
         'description',
         'price',
-        'type',
-        'userId',
+        'category',
+        'area',
     ];
 
     protected $casts = [
