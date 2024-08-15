@@ -30,4 +30,8 @@ class Food extends Model implements HasMedia
     public function ingredients(): HasMany {
         return $this->hasMany(Ingredient::class, 'foodId');
     }
+
+    public function registerMediaCollections(): void {
+        $this->addMediaCollection('food')->singleFile();
+    }
 }
