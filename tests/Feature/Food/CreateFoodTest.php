@@ -19,21 +19,8 @@ test('it throws validation error if data is missing', function () {
         'name'        => 'The name field is required.',
         'description' => 'The description field is required.',
         'price'       => 'The price field is required.',
-        'type'        => 'The type field is required.'
-    ]);
-});
-
-test('it throws validation if type is wrong', function () {
-    $user = User::factory()->create();
-    $this->actingAs($user, 'api');
-
-    $response = $this->postJson('/api/foods', [
-        'type' => 'json',
-    ]);
-
-    $response->assertUnprocessable();
-    $response->assertJsonValidationErrors([
-        'type' => 'The selected type is invalid.'
+        'category'    => 'The category field is required.',
+        'area'        => 'The area field is required.',
     ]);
 });
 
@@ -42,7 +29,8 @@ test('it creates a food item', function () {
     $this->actingAs($user, 'api');
 
     $response = $this->postJson('/api/foods', [
-        'type'        => 'main',
+        'category'    => 'Vegetarian',
+        'area'        => 'Italian',
         'name'        => 'testFood',
         'description' => 'testDescription',
         'price'       => 20.99,
