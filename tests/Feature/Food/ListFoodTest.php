@@ -22,11 +22,13 @@ test('it lists all food items', function () {
                 'id',
                 'name',
                 'description',
-                'type',
+                'category',
+                'area',
                 'price',
                 'createdAt',
                 'updatedAt',
                 'ingredientsCount',
+                'ingredients',
             ]
         ],
         'meta' => [
