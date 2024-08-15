@@ -17,16 +17,16 @@ class DatabaseSeeder extends Seeder
     public function run(): void {
         User::factory(10)->create();
 
-        Food::factory(50)->create()
-            ->each(function ($food) {
-                $food->ingredients()->saveMany(
-                    Ingredient::factory(rand(1, 5))->make()
-                );
-            });
+        /*    Food::factory(50)->create()
+                ->each(function ($food) {
+                    $food->ingredients()->saveMany(
+                        Ingredient::factory(rand(1, 5))->make()
+                    );
+              });
 
-        /*        User::factory()->create([
-                    'name' => 'Test User',
-                    'email' => 'test@example.com',
-                ]);*/
+            /*        User::factory()->create([
+                        'name' => 'Test User',
+                        'email' => 'test@example.com',
+                    ]);*/
     }
 }
