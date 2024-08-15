@@ -37,6 +37,9 @@ class FoodSeeder extends Seeder
                     ])->toArray();
 
                 DB::table('ingredients')->insert($ingredients);
+
+                //attach image to food record.
+                $foodRecord->addMediaFromUrl($food['strMealThumb'])->toMediaCollection('food');
             });
         }
     }
