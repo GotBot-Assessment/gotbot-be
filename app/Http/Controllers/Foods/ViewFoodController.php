@@ -12,6 +12,6 @@ class ViewFoodController extends Controller
      * Handle the incoming request.
      */
     public function __invoke(Food $food) {
-        return new FoodResource($food->load('ingredients'));
+        return new FoodResource($food->load(['ingredients', 'media']));
     }
 }

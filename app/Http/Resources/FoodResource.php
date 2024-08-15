@@ -22,6 +22,7 @@ class FoodResource extends JsonResource
             'price'            => $this->price,
             'createdAt'        => $this->created_at,
             'updatedAt'        => $this->updated_at,
+            'image'            => $this->whenLoaded('media', new MediaResource($this->getFirstMedia('food'))),
             'ingredients'      => $this->whenLoaded('ingredients', IngredientReource::collection($this->ingredients)),
             'ingredientsCount' => $this->whenCounted('ingredients', $this->ingredientsCount)
         ];
