@@ -2,3 +2,24 @@
 
 ## Commands to run after container run
 You will need to run just these 2 commands when the backend container is up and running.
+
+### Setting up db
+You will need to create the tables in the database and seed some test data for the demo.
+```shell
+docker exec -it gotbot-be php artisan migrate:fresh --seed
+```
+This will set up the tables and give you a test user with the following credentials.
+```shell
+email: gotbot@chef.com
+password: P@55word!@#
+```
+Of course you are welcome to create a new user :)
+
+
+### Setting up authentication
+You will need to run one more command to generate auth client for the authentication system.
+```shell
+docker exec -it gotbot-be php artisan passport:client --personal --no-interaction
+```
+
+That`s all of it. Enjoy :)"
