@@ -29,6 +29,7 @@ test('it lists all food items', function () {
                 'updatedAt',
                 'ingredientsCount',
                 'ingredients',
+                'image',
             ]
         ],
         'meta' => [

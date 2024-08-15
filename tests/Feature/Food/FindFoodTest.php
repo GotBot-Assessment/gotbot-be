@@ -36,5 +36,6 @@ test('it returns a single food item', function () {
         'createdAt',
         'updatedAt',
         'ingredients',
+        'image'
     ]);
 });
