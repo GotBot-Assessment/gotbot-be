@@ -29,6 +29,12 @@ RUN composer install -q --no-ansi --no-interaction --no-scripts --no-progress --
 #copy env file.
 RUN cp .env.example .env
 
+#make bootstrap writable.
+RUN chmod -R 777 storage bootstrap/cache
+
+#Linking storage.
+RUN php artisan storage:link
+
 #Generate appkey.
 RUN php artisan key:generate
 
