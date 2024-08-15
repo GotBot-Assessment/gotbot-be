@@ -1,6 +1,6 @@
 FROM composer as composer
 
-FROM php:8.3-fpm
+FROM php:8.3-apache as apache
 LABEL authors="Innocent Mazando"
 LABEL project="GotBot Chef"
 
@@ -9,6 +9,17 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
+
+#copy composer files to install dependencies.
+COPY . .
+
+
+#updating apache root directory.
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
+#override conf settings.
+COPY ./bin/gotbot-chef.conf /etc/apache2/sites-available/000-default.conf
 
 #install php extensions required for the app.
 RUN apt-get update && apt-get install -y \
@@ -39,3 +50,7 @@ RUN php artisan key:generate
 
 #Generate auth keys.
 RUN php artisan passport:keys --force
+
+EXPOSE 8000
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
