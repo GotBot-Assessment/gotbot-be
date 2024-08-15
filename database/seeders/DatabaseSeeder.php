@@ -13,7 +13,11 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void {
-        User::factory(10)->create();
+        User::factory(1, [
+            'name' => 'Test Chef',
+            'email' => 'gotbot@chef.com',
+            'password' => 'P@55word!@#'
+        ])->create();
 
         $this->call(FoodSeeder::class);
     }
