@@ -12,9 +12,10 @@ return new class extends Migration {
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->double('price');
-            $table->enum('type', ['starter', 'main', 'dessert']);
+            $table->string('category');
+            $table->string('area')->nullable();
             $table->timestamps();
         });
     }

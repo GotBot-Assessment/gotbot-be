@@ -13,7 +13,7 @@ class ListFoodsController extends Controller
      * Handle the incoming request.
      */
     public function __invoke(Request $request) {
-        $foods = Food::withCount('ingredients')
+        $foods = Food::withCount(['ingredients', 'media'])
             ->latest()
             ->paginate(15);
 

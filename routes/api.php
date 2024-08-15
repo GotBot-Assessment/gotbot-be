@@ -9,6 +9,7 @@ use App\Http\Controllers\Foods\Ingredients\DeleteIngredientController;
 use App\Http\Controllers\Foods\Ingredients\UpdateIngredientController;
 use App\Http\Controllers\Foods\ListFoodsController;
 use App\Http\Controllers\Foods\UpdateFoodController;
+use App\Http\Controllers\Foods\UploadFoodPictureController;
 use App\Http\Controllers\Foods\ViewFoodController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ Route::prefix('foods')
         Route::get('/', ListFoodsController::class);
         Route::post('/', CreateFoodController::class);
         Route::get('/{food}', ViewFoodController::class);
+        Route::post('/{food}', UploadFoodPictureController::class);
         Route::delete('/{food}', DeleteFoodController::class);
         Route::put('/{food}', UpdateFoodController::class);
 

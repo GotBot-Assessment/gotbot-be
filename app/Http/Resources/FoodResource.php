@@ -16,11 +16,13 @@ class FoodResource extends JsonResource
         return [
             'id'               => $this->id,
             'name'             => $this->name,
-            'description'             => $this->description,
-            'type'             => $this->type,
+            'description'      => $this->description,
+            'category'         => $this->category,
+            'area'             => $this->area,
             'price'            => $this->price,
             'createdAt'        => $this->created_at,
             'updatedAt'        => $this->updated_at,
+            'image'            => $this->whenLoaded('media', new MediaResource($this->getFirstMedia('food'))),
             'ingredients'      => $this->whenLoaded('ingredients', IngredientReource::collection($this->ingredients)),
             'ingredientsCount' => $this->whenCounted('ingredients', $this->ingredientsCount)
         ];

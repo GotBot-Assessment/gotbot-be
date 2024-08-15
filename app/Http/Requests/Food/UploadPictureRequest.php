@@ -4,7 +4,7 @@ namespace App\Http\Requests\Food;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SaveFoodRequest extends FormRequest
+class UploadPictureRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,11 +20,7 @@ class SaveFoodRequest extends FormRequest
      */
     public function rules(): array {
         return [
-            'name'        => 'required|string|max:255|min:3',
-            'description' => 'required|string|max:255|min:3',
-            'price'       => 'required|numeric|min:0',
-            'category'    => 'required|string|max:255|min:3',
-            'area'        => 'required|string|max:255|min:3',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

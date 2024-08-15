@@ -22,7 +22,8 @@ class FoodFactory extends Factory
             'name'        => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'price'       => $this->faker->randomNumber(3),
-            'type'        => $this->faker->randomElement(['starter', 'main', 'dessert']),
+            'category'    => $this->faker->word,
+            'area'        => $this->faker->word,
         ];
     }
 }

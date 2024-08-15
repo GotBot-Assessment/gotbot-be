@@ -30,10 +30,12 @@ test('it returns a single food item', function () {
         'id',
         'name',
         'description',
-        'type',
+        'category',
+        'area',
         'price',
         'createdAt',
         'updatedAt',
         'ingredients',
+        'image'
     ]);
 });
