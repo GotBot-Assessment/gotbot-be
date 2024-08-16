@@ -11,6 +11,7 @@ use App\Http\Controllers\Foods\ListFoodsController;
 use App\Http\Controllers\Foods\UpdateFoodController;
 use App\Http\Controllers\Foods\UploadFoodPictureController;
 use App\Http\Controllers\Foods\ViewFoodController;
+use App\Http\Controllers\GetUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,10 @@ Route::prefix('auth')->group(function () {
     Route::post('/register', RegistrationController::class);
     Route::post('/login', LoginController::class);
 });
+
+//get user profile.
+Route::middleware('auth:api')
+    ->get('/user', GetUserController::class);
 
 Route::prefix('foods')
     ->middleware(['auth:api'])
