@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Authentication\LoginController;
+use App\Http\Controllers\Authentication\LogoutController;
 use App\Http\Controllers\Authentication\RegistrationController;
 use App\Http\Controllers\Foods\CreateFoodController;
 use App\Http\Controllers\Foods\DeleteFoodController;
@@ -26,7 +27,10 @@ Route::prefix('auth')->group(function () {
 
 //get user profile.
 Route::middleware('auth:api')
-    ->get('/user', GetUserController::class);
+    ->group(function () {
+        Route::get('/user', GetUserController::class);
+        Route::get('/auth/logout', LogoutController::class);
+    });
 
 Route::prefix('foods')
     ->middleware(['auth:api'])
