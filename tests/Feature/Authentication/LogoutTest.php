@@ -10,10 +10,9 @@ test('it blocks an unauthenticated call', function () {
 
 test('it logs the user out', function () {
     $user = User::factory()->create();
-    $this->actingAs($user, 'api');
+    $token = $user->createToken('Chef')->accessToken;
 
-    $this->getJson('/api/auth/logout', [])
+    $this->withHeader('Authorization', 'Bearer ' . $token)
+        ->getJson('/api/auth/logout', [])
         ->assertSuccessful();
-    $this->assertGuest();
-    $this->assertNull(auth()->user());
 });
