@@ -13,10 +13,10 @@ class ListMealsController extends Controller
      * Handle the incoming request.
      */
     public function __invoke(Request $request) {
-        $foods = Meal::withCount(['ingredients', 'media'])
+        $meals = Meal::withCount(['ingredients', 'media'])
             ->latest()
             ->paginate(12);
 
-        return MealResource::collection($foods);
+        return MealResource::collection($meals);
     }
 }

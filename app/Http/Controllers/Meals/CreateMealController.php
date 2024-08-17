@@ -13,8 +13,8 @@ class CreateMealController extends Controller
      * Handle the incoming request.
      */
     public function __invoke(SaveMealRequest $request) {
-        $food = Meal::create($request->validated());
+        $meal = Meal::create($request->validated());
 
-        return new MealResource($food);
+        return new MealResource($meal);
     }
 }
