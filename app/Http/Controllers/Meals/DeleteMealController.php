@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Foods;
+namespace App\Http\Controllers\Meals;
 
 use App\Http\Controllers\Controller;
-use App\Models\Food;
+use App\Models\Meal;
 use Illuminate\Http\Request;
 
-class DeleteFoodController extends Controller
+class DeleteMealController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Food $food) {
+    public function __invoke(Meal $food) {
         $food->delete();
 
         return response()->json([

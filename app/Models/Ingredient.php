@@ -11,11 +11,11 @@ class Ingredient extends Model
     use HasFactory;
 
     protected $fillable = [
-        'foodId',
+        'mealId',
         'name',
     ];
 
-    public function food(): BelongsTo {
-        return $this->belongsTo(Food::class, 'foodId');
+    public function meal(): BelongsTo {
+        return $this->belongsTo(Meal::class, 'mealId');
     }
 }

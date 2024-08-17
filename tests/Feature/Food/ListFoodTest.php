@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Food;
+use App\Models\Meal;
 use App\Models\User;
 
 test('it blocks an unauthenticated call', function () {
@@ -11,7 +11,7 @@ test('it blocks an unauthenticated call', function () {
 
 test('it lists all food items', function () {
     $user = User::factory()->create();
-    Food::factory(2)->create();
+    Meal::factory(2)->create();
     $this->actingAs($user, 'api');
 
     $response = $this->getJson('/api/foods');

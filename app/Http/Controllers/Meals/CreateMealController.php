@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Foods;
+namespace App\Http\Controllers\Meals;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Food\SaveFoodRequest;
 use App\Http\Resources\FoodResource;
-use App\Models\Food;
+use App\Models\Meal;
 
-class CreateFoodController extends Controller
+class CreateMealController extends Controller
 {
     /**
      * Handle the incoming request.
      */
     public function __invoke(SaveFoodRequest $request) {
-        $food = Food::create($request->validated());
+        $food = Meal::create($request->validated());
 
         return new FoodResource($food);
     }

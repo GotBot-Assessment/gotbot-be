@@ -2,20 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\Food;
+use App\Models\Meal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Food>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Meal>
  */
-class FoodFactory extends Factory
+class MealFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    protected $model = Food::class;
+    protected $model = Meal::class;
 
     public function definition(): array {
         return [

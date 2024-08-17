@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Food;
+use App\Models\Meal;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
 
@@ -19,7 +19,7 @@ test('it throws an error if a food item isnt found', function () {
 });
 
 test('it throws an error if image is not supplied', function () {
-    Food::factory()->create();
+    Meal::factory()->create();
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
 
@@ -28,7 +28,7 @@ test('it throws an error if image is not supplied', function () {
 });
 
 test('it throws an error if upload is not an image.', function () {
-    Food::factory()->create();
+    Meal::factory()->create();
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
 
@@ -42,7 +42,7 @@ test('it throws an error if upload is not an image.', function () {
 });
 
 test('it uploads an image to a food item.', function () {
-    Food::factory()->create();
+    Meal::factory()->create();
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
 

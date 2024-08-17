@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Food;
+use App\Models\Meal;
 use App\Models\User;
 
 test('it blocks an unauthenticated call', function () {
@@ -19,7 +19,7 @@ test('throws 404 if food item is not found', function () {
 });
 
 test('it returns a single food item', function () {
-    Food::factory()->create();
+    Meal::factory()->create();
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
 

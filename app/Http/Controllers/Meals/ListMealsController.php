@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Foods;
+namespace App\Http\Controllers\Meals;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\FoodResource;
-use App\Models\Food;
+use App\Models\Meal;
 use Illuminate\Http\Request;
 
-class ListFoodsController extends Controller
+class ListMealsController extends Controller
 {
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request) {
-        $foods = Food::withCount(['ingredients', 'media'])
+        $foods = Meal::withCount(['ingredients', 'media'])
             ->latest()
             ->paginate(12);
 

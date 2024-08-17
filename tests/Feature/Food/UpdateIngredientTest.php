@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Food;
+use App\Models\Meal;
 use App\Models\User;
 
 test('it blocks an unauthenticated call', function () {
@@ -18,7 +18,7 @@ test('it throws an error if a food item isnt found', function () {
 });
 
 test('it throws an error if a name is not supplied', function () {
-    $food = Food::factory()->create();
+    $food = Meal::factory()->create();
     $food->ingredients()->create(['name' => 'Test']);
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
@@ -32,8 +32,8 @@ test('it throws an error if a name is not supplied', function () {
 
 
 test('it throws an error if ingredient doesnt belong to food item', function () {
-    Food::factory(2)->create();
-    Food::find(2)->ingredients()->create(['name' => 'Test']);
+    Meal::factory(2)->create();
+    Meal::find(2)->ingredients()->create(['name' => 'Test']);
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
 
@@ -44,7 +44,7 @@ test('it throws an error if ingredient doesnt belong to food item', function () 
 });
 
 test('it updates an ingredient', function () {
-    $food = Food::factory()->create();
+    $food = Meal::factory()->create();
     $food->ingredients()->create(['name' => 'Test']);
     $user = User::factory()->create();
     $this->actingAs($user, 'api');

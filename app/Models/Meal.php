@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Food extends Model implements HasMedia
+class Meal extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;

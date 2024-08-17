@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Food;
+use App\Models\Meal;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -18,7 +18,7 @@ class FoodSeeder extends Seeder
 
         if ($response->ok()) {
             collect($response->json('meals'))->each(function ($food) {
-                $foodRecord = Food::factory()->create([
+                $foodRecord = Meal::factory()->create([
                     'name'        => $food['strMeal'],
                     'description' => $food['strInstructions'],
                     'category'    => $food['strCategory'],

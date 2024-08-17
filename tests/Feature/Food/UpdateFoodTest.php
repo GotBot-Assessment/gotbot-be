@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Food;
+use App\Models\Meal;
 use App\Models\User;
 
 test('it blocks an unauthenticated call', function () {
@@ -21,7 +21,7 @@ test('throws 404 if food item is not found', function () {
 test('it throws validation error if data is missing', function () {
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
-    Food::factory()->create();
+    Meal::factory()->create();
 
     $response = $this->putJson('/api/foods/1', []);
 
@@ -36,7 +36,7 @@ test('it throws validation error if data is missing', function () {
 });
 
 test('it updates a food item', function () {
-    Food::factory()->create();
+    Meal::factory()->create();
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
 
