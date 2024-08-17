@@ -21,7 +21,7 @@ class SaveFoodRequest extends FormRequest
     public function rules(): array {
         return [
             'name'        => 'required|string|max:255|min:3',
-            'description' => 'required|string|max:255|min:3',
+            'description' => 'required|string|max:2000|min:3',
             'price'       => 'required|numeric|min:0',
             'category'    => 'required|string|max:255|min:3',
             'area'        => 'required|string|max:255|min:3',
