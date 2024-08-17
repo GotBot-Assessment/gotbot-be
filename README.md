@@ -17,9 +17,14 @@ Of course you are welcome to create a new user :)
 
 
 ### Setting up authentication
-You will need to run one more command to generate auth client for the authentication system.
+You will need to run two more commands to generate auth keys and auth client for the authentication system.
 ```shell
+#generating auth keys
+docker exec -it gotbot-be php artisan passport:keys --force
+```
+```shell
+#generating personal tokens to OAuth.
 docker exec -it gotbot-be php artisan passport:client --personal --no-interaction
 ```
 
-That`s all of it. Enjoy :)"
+That`s all of it. Enjoy :)
