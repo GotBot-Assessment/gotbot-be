@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Meals;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Food\UploadPictureRequest;
+use App\Http\Requests\Meals\UploadPictureRequest;
 use App\Http\Resources\FoodResource;
 use App\Models\Meal;
 use Illuminate\Http\Request;

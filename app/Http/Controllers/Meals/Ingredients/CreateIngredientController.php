@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Meals\Ingredients;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Food\SaveIngredientRequest;
+use App\Http\Requests\Meals\SaveIngredientRequest;
 use App\Http\Resources\IngredientReource;
 use App\Models\Meal;
 use Illuminate\Http\Request;

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Meals\Ingredients;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Food\SaveIngredientRequest;
+use App\Http\Requests\Meals\SaveIngredientRequest;
 use App\Models\Meal;
 use App\Models\Ingredient;
 use Symfony\Component\HttpFoundation\Response;
