@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Meals;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Meals\UploadPictureRequest;
-use App\Http\Resources\FoodResource;
+use App\Http\Resources\MealResource;
 use App\Models\Meal;
 use Illuminate\Http\Request;
 
@@ -17,6 +17,6 @@ class UploadMealPictureController extends Controller
         $food->addMediaFromRequest('image')
             ->toMediaCollection('food');
 
-        return new FoodResource($food->with(['media'])->first());
+        return new MealResource($food->with(['media'])->first());
     }
 }

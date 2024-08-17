@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Meals;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\FoodResource;
+use App\Http\Resources\MealResource;
 use App\Models\Meal;
 use Illuminate\Http\Request;
 
@@ -17,6 +17,6 @@ class ListMealsController extends Controller
             ->latest()
             ->paginate(12);
 
-        return FoodResource::collection($foods);
+        return MealResource::collection($foods);
     }
 }

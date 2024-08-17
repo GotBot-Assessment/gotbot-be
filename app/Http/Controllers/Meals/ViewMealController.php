@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Meals;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\FoodResource;
+use App\Http\Resources\MealResource;
 use App\Models\Meal;
 
 class ViewMealController extends Controller
@@ -12,6 +12,6 @@ class ViewMealController extends Controller
      * Handle the incoming request.
      */
     public function __invoke(Meal $food) {
-        return new FoodResource($food->load(['ingredients', 'media']));
+        return new MealResource($food->load(['ingredients', 'media']));
     }
 }
