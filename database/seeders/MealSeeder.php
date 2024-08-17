@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
-class FoodSeeder extends Seeder
+class MealSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -32,13 +32,13 @@ class FoodSeeder extends Seeder
                         'name'       => $food[$key],
                         'created_at' => now(),
                         'updated_at' => now(),
-                        'foodId'     => $foodRecord->id
+                        'mealId'     => $foodRecord->id
                     ])->toArray();
 
                 DB::table('ingredients')->insert($ingredients);
 
                 //attach image to food record.
-                $foodRecord->addMediaFromUrl($food['strMealThumb'])->toMediaCollection('food');
+                $foodRecord->addMediaFromUrl($food['strMealThumb'])->toMediaCollection('meal');
             });
         }
     }

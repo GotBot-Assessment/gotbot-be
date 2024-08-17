@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
             'password' => 'P@55word!@#'
         ])->create();
 
-        $this->call(FoodSeeder::class);
+        $this->call(MealSeeder::class);
     }
 }
