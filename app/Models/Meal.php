@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Food extends Model implements HasMedia
+class Meal extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
-
-    protected $table = 'foods';
 
     protected $fillable = [
         'name',
@@ -28,10 +26,10 @@ class Food extends Model implements HasMedia
     ];
 
     public function ingredients(): HasMany {
-        return $this->hasMany(Ingredient::class, 'foodId');
+        return $this->hasMany(Ingredient::class, 'mealId');
     }
 
     public function registerMediaCollections(): void {
-        $this->addMediaCollection('food')->singleFile();
+        $this->addMediaCollection('meal')->singleFile();
     }
 }

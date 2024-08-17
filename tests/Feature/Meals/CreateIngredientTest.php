@@ -1,28 +1,28 @@
 <?php
 
-use App\Models\Food;
+use App\Models\Meal;
 use App\Models\User;
 
 test('it blocks an unauthenticated call', function () {
-    $response = $this->postJson('/api/foods/1/ingredients', []);
+    $response = $this->postJson('/api/meals/1/ingredients', []);
 
     $response->assertUnauthorized();
 });
 
-test('it throws an error if a food item isnt found', function () {
+test('it throws an error if a meal item isnt found', function () {
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
 
-    $response = $this->postJson('/api/foods/1/ingredients', []);
+    $response = $this->postJson('/api/meals/1/ingredients', []);
     $response->assertNotFound();
 });
 
 test('it throws an error if a name is not supplied', function () {
-    Food::factory()->create();
+    Meal::factory()->create();
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
 
-    $response = $this->postJson('/api/foods/1/ingredients', []);
+    $response = $this->postJson('/api/meals/1/ingredients', []);
     $response->assertUnprocessable();
     $response->assertJsonValidationErrors([
         'name' => 'The name field is required.'
@@ -30,10 +30,10 @@ test('it throws an error if a name is not supplied', function () {
 });
 
 test('it creates a new ingredient', function () {
-    Food::factory()->create();
+    Meal::factory()->create();
     $user = User::factory()->create();
     $this->actingAs($user, 'api');
-    $response = $this->postJson('/api/foods/1/ingredients', [
+    $response = $this->postJson('/api/meals/1/ingredients', [
         'name' => 'Test',
     ]);
 
