@@ -13,9 +13,9 @@ class UpdateMealController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Meal $food, SaveMealRequest $request) {
-        $food->update($request->validated());
+    public function __invoke(Meal $meal, SaveMealRequest $request) {
+        $meal->update($request->validated());
 
-        return new MealResource($food->refresh());
+        return new MealResource($meal->refresh());
     }
 }

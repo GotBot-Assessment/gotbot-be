@@ -12,8 +12,8 @@ class DeleteIngredientController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Meal $food, Ingredient $ingredient) {
-        if ($ingredient->foodId !== $food->id) {
+    public function __invoke(Meal $meal, Ingredient $ingredient) {
+        if ($ingredient->mealId !== $meal->id) {
             abort(Response::HTTP_FORBIDDEN, 'You can not delete an ingredient that doesnt belong to this meal.');
         }
 

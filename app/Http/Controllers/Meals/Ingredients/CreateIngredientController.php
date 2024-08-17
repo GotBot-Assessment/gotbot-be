@@ -13,8 +13,8 @@ class CreateIngredientController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Meal $food, SaveIngredientRequest $request) {
-        $ingredient = $food->ingredients()
+    public function __invoke(Meal $meal, SaveIngredientRequest $request) {
+        $ingredient = $meal->ingredients()
             ->create($request->validated());
 
         return new IngredientReource($ingredient);

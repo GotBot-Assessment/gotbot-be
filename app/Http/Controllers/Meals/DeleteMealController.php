@@ -11,11 +11,11 @@ class DeleteMealController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Meal $food) {
-        $food->delete();
+    public function __invoke(Meal $meal) {
+        $meal->delete();
 
         return response()->json([
-            'message' => 'Food item deleted successfully.',
+            'message' => 'Meal deleted successfully.',
         ]);
     }
 }

@@ -32,18 +32,18 @@ Route::middleware('auth:api')
         Route::get('/auth/logout', LogoutController::class);
     });
 
-Route::prefix('foods')
+Route::prefix('meals')
     ->middleware(['auth:api'])
     ->group(callback: function () {
         Route::get('/', ListMealsController::class);
         Route::post('/', CreateMealController::class);
-        Route::get('/{food}', ViewMealController::class);
-        Route::post('/{food}', UploadMealPictureController::class);
-        Route::delete('/{food}', DeleteMealController::class);
-        Route::put('/{food}', UpdateMealController::class);
+        Route::get('/{meal}', ViewMealController::class);
+        Route::post('/{meal}', UploadMealPictureController::class);
+        Route::delete('/{meal}', DeleteMealController::class);
+        Route::put('/{meal}', UpdateMealController::class);
 
         //Ingredients.
-        Route::post('/{food}/ingredients', CreateIngredientController::class);
-        Route::delete('/{food}/ingredients/{ingredient}', DeleteIngredientController::class);
-        Route::put('/{food}/ingredients/{ingredient}', UpdateIngredientController::class);
+        Route::post('/{meal}/ingredients', CreateIngredientController::class);
+        Route::delete('/{meal}/ingredients/{ingredient}', DeleteIngredientController::class);
+        Route::put('/{meal}/ingredients/{ingredient}', UpdateIngredientController::class);
     });

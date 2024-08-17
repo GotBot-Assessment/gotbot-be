@@ -13,10 +13,10 @@ class UploadMealPictureController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Meal $food, UploadPictureRequest $request) {
-        $food->addMediaFromRequest('image')
-            ->toMediaCollection('food');
+    public function __invoke(Meal $meal, UploadPictureRequest $request) {
+        $meal->addMediaFromRequest('image')
+            ->toMediaCollection('meal');
 
-        return new MealResource($food->with(['media'])->first());
+        return new MealResource($meal->with(['media'])->first());
     }
 }
