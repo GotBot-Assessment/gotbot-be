@@ -11,8 +11,8 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('foodId')
-                ->constrained('foods', 'id')
+            $table->foreignId('mealId')
+                ->constrained('meals', 'id')
                 ->cascadeOnDelete();
             $table->string('name');
             $table->timestamps();
